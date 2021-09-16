@@ -1,0 +1,21 @@
+<div [routerLink]="['']" class="person-overlay">
+    <div class="person-overlay__card">
+        <img class="person-overlay__picture" src="{{person.picture.large}}">
+        <div class="person-overlay__data">
+            <ul>
+                <li>
+                    {{person.name.title}} {{person.name.first}} {{person.name.last}}
+                </li>
+                <li>
+                    {{person.email}}
+                </li>
+                <li>
+                    {{person.location.street.name}} {{person.location.street.number}}, {{person.location.city}}
+                </li>
+                <li>
+                    {{person.location.state}}, {{person.location.country}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

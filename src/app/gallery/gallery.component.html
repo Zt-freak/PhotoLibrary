@@ -1,0 +1,16 @@
+<div class="gallery__container">
+    <div class="gallery__scrollcontainer">
+        <a
+            [routerLink]="['/person', i]"
+            [state]="{ person: person }"
+            *ngFor="let person of people; let i = index"
+        >
+            <div class="gallery__image-container">
+                <img class="gallery__thumbnail" src="{{person.picture.large}}" draggable="false">
+                <div class="gallery__namecard">
+                    {{person.name.last}}, {{person.name.first}}
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
