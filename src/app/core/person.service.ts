@@ -22,7 +22,7 @@ export class PersonService {
       map(
         response => <Person[]>response.results
       )
-    )
+    );
   }
 
   getPerson(index: number): Observable<Person> {
@@ -33,6 +33,6 @@ export class PersonService {
       map(
         response => <Person>response.results[index]
       )
-    )
+    );
   }
 }
