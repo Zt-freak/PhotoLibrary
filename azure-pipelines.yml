@@ -1,23 +1,4 @@
 trigger:
 - master
 
-jobs:
-- job: InstallAngularCLI
-  steps:
-  - script: npm install -g @angular/cli
-- job: Install
-  dependsOn: InstallAngularCLI
-  steps:
-  - script: npm install
-- job: Lint
-  dependsOn: Install
-  steps:
-  - script: ng lint
-- job: Test
-  dependsOn: Lint
-  steps:
-  - script: ng test
-- job: Build
-  dependsOn: Test
-  steps:
-  - script: ng build --prod
+#hlep
