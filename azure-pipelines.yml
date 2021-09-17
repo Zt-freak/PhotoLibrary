@@ -1,16 +1,25 @@
 trigger:
 - master
 
-pool:
-  vmImage: ubuntu-latest
-
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
-- bash: 'npm install -g @angular/cli'
-- bash: 'npm install'
-- bash: 'ng lint'
-- bash: 'ng test'
-- bash: 'ng build --prod'
+jobs:
+- job: InstallAngularCLI
+  pool:
+    vmImage: ubuntu-latest
+  steps:
+  - script: npm install -g @angular/cli
+- job: Install
+  dependsOn: InstallAngularCLI
+  steps:
+  - script: npm install
+- job: Lint
+  dependsOn: Install
+  steps:
+  - script: ng lint
+- job: Test
+  dependsOn: Lint
+  steps:
+  - script: ng test
+- job: Build
+  dependsOn: Test
+  steps:
+  - script: ng build --prod
