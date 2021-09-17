@@ -1,5 +1,5 @@
 <div [routerLink]="['']" class="person-overlay">
-    <div class="person-overlay__card">
+    <div class="person-overlay__card" *ngIf="person.name.title !== ''">
         <img class="person-overlay__picture" src="{{person.picture.large}}">
         <div class="person-overlay__data">
             <ul>
